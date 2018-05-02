@@ -1,0 +1,9 @@
+#product-list-div {
+    width:40%;
+    float: left;
+    margin: 50px;
+}
+
+thead {
+    text-align: center;
+}

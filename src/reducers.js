@@ -1,15 +1,33 @@
 import { combineReducers } from 'redux';
 // import React from "react";
 
+const userOrderCartReducer = (state, action) => {
+    if (!state) {
+        state = {
+            userCartArray: []
+        }
+    }
+    switch (action.type) {
+        case "addItemToCart":
+            return state = {
+                userCartArray: action.userCartArray
+            }
+        default:
+            return {
+                ...state
+            }
+    }
+}
+
 const userDetailsReducer = (state, action) => {
-    if(!state) {
+    if (!state) {
         state = {
             username: "",
             password: "",
-            verifyPassword:""
+            verifyPassword: ""
         }
     }
-    switch(action.type) {
+    switch (action.type) {
         case "onUsernameChange":
             return state = {
                 ...state,
@@ -33,5 +51,6 @@ const userDetailsReducer = (state, action) => {
 }
 
 export default combineReducers({
-    userDetailsReducer: userDetailsReducer
+    userDetailsReducer: userDetailsReducer,
+    userOrderCartReducer: userOrderCartReducer
 });

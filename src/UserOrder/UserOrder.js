@@ -7,9 +7,6 @@ class UserOrder extends Component {
     constructor() {
         super();
         this.createOrder = this.createOrder.bind(this);
-        this.state = {
-            productsList: ''
-        }
     }
 
     createOrder() {
@@ -19,8 +16,25 @@ class UserOrder extends Component {
     }
 
     render() {
+        var userCart = this.props.userOrderCartReducer.userCartArray.map((value) => {
+            console.log(value)
+            return <tr>
+                <td key={value}>{value}</td>
+            </tr>
+        })
         return (
-            <div>
+            <div id="user-order-div">
+                <h3>Your Cart</h3>
+                <table id="user-cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {userCart}
+                    </tbody>
+                </table>
                 <button onClick={this.createOrder}>Create Order</button>
             </div>
         );
