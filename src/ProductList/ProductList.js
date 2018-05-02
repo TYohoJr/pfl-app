@@ -19,7 +19,7 @@ class ProductList extends Component {
         // console.log(e.target.parentNode.innerText);
         // console.log(e.target.offsetParent.className);
         if (userCartArray.indexOf(e.target.parentNode.innerText) === -1){
-            userCartArray.push(e.target.parentNode.innerText)
+            // userCartArray.push({productId:e.target.parentNode.innerText, quantity:50})
         } else {
             userCartArray.splice(userCartArray.indexOf(e.target.parentNode.innerText), 1)
         }
@@ -35,7 +35,7 @@ class ProductList extends Component {
                 this.setState({
                     productsList: result.data.body.results.data.map((value) => {
                         return <tr>
-                            <td className={value.id} key={value.id}><input type="checkbox" onChange={this.addProductToOrder} />{value.name}</td>
+                            <td className={value.id} key={value.id}><input type="checkbox" onChange={this.addProductToOrder} />{value.id}:{value.name}</td>
                         </tr>
                     })
                 })
