@@ -32,18 +32,18 @@ const userOrderCartReducer = (state, action) => {
 const userDetailsReducer = (state, action) => {
     if (!state) {
         state = {
-            firstName: "",
-            lastName: "",
-            companyName: "",
-            addressOne: "",
-            addressTwo: "",
-            city: "",
-            userState: "",
-            postalCode: "",
-            countryCode: "",
-            email: "",
-            phone: "",
-            orderReference: ""
+            firstName: null,
+            lastName: null,
+            companyName: null,
+            addressOne: null,
+            addressTwo: null,
+            city: null,
+            userState: null,
+            postalCode: null,
+            countryCode: null,
+            email: null,
+            phone: null,
+            orderReference: null
         }
     }
     switch (action.type) {
