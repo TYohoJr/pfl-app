@@ -65,12 +65,18 @@ class UserCheckoutModal extends React.Component {
             default:
                 break;
         }
+        // Make sure phone number is in the correct format
+        if (user.phone.length !== 10) return alert("Phone number should be in 10 digit format");
+        // Make sure state is in 2 digit format
+        if (user.userState.length !== 2) return alert("Please use the 2-digit format for your state");
+        // Make sure postal code is in the 5 digit format
+        if (user.postalCode.length !== 5) return alert("Please use the 5 digit format for your postal code");
         // Send all the order and customer information to the server
         axios.post("/createOrder", { userDetails: this.props.userDetailsReducer, orderProductInfo: this.props.userOrderCartReducer.productInfoArray }).then((result) => {
             console.log(result.data);
             // If an order number is received send it to the customer in an alert
             if (result.data.body.results.data.orderNumber) {
-                alert(`Your order was successfully submitted!\nYour order number is: ${result.data.body.results.data.orderNumber}`);
+                alert(`Your order was successfully submitted on ${result.data.body.meta.time} (server time)\nYour order number is: ${result.data.body.results.data.orderNumber}\nYour reference ID is: ${result.data.body.results.data.partnerOrderReference}\nPlease keep a record of both of these ID's`);
                 // Clear their cart to prevent duplicate orders
                 this.props.dispatch({
                     type: "clearOrderCart"
@@ -212,8 +218,8 @@ class UserCheckoutModal extends React.Component {
                         <Input type="text" placeholder="example@email.com" maxLength="60" onChange={this.onEmailChange} />
                         <Label>Phone Number</Label>
                         <Input type="text" placeholder="555-555-5555" maxLength="20" onChange={this.onPhoneChange} />
-                        <Label>Order Reference</Label><small> *This is used solely for your references*</small>
-                        <Input type="text" placeholder="Order Reference" maxLength="128" onChange={this.onOrderReferenceChange} />
+                        <Label>Order Reference ID</Label><small> *This is used solely for your references*</small>
+                        <Input type="text" placeholder="Order Reference ID" maxLength="128" onChange={this.onOrderReferenceChange} />
                     </ModalBody>
                     <ModalFooter>
                         {/*Attempt to submit the order*/}
