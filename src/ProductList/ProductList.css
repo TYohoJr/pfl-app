@@ -12,3 +12,8 @@ thead {
     height: 90vh;
     overflow: scroll;
 }
+
+.product-list-checkbox {
+    float: left;
+    margin-right: 5px;
+}

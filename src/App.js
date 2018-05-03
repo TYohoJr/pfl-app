@@ -20,6 +20,7 @@ export default class App extends Component {
             <p id="header-date"><b>{new Date().toDateString()}</b></p>
             <h1 id="app-title">Welcome to PFL!</h1>
           </div>
+          <p>Click a product to view an example, then check them off to add it your cart!</p>
           {/*Main page consists of 2 components, the list of products and the users cart*/}
           <ProductsList />
           <UserOrder />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ProductList.css';
 import axios from "axios";
 import { connect } from 'react-redux';
+import ProductInfoModal from "../ProductInfoModal/ProductInfoModal";
 
 // Arrays to store both the names and valuable info about the products the user has added to their cart
 // The productNamesArray is mapped in the render method of UserOrderCart.js
@@ -51,7 +52,7 @@ class ProductList extends Component {
                     productsList: result.data.body.results.data.map((value) => {
                         console.log(value)
                         return <tr>
-                            <td className={value.id} key={value.id}><input type="checkbox" value={value.productID} onChange={this.addProductToOrder} />{value.name}:{value.productID}</td>
+                            <td className={value.id} key={value.id}><input className="product-list-checkbox" type="checkbox" value={value.productID} onChange={this.addProductToOrder} /><ProductInfoModal imageURL={value.imageURL} productName={value.name} lastUpdated={value.lastUpdated}/></td>
                         </tr>
                     })
                 })
@@ -65,7 +66,7 @@ class ProductList extends Component {
                     <table>
                         <thead>
                             <tr>
-                                <th>Product Description (check to add to cart)</th>
+                                <th>Available Products</th>
                             </tr>
                         </thead>
                         <tbody>
