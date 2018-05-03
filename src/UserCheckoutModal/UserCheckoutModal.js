@@ -83,8 +83,6 @@ class UserCheckoutModal extends React.Component {
             } else {
                 // Map the array of errors
                 let errorsArray = result.data.body.results.errors.map((value, index) => {
-                    console.log(value);
-                    console.log(index);
                     // Inside of the first map, map the array of error details that exists inside of each individual error
                     return value.dataElementErrors.map((value2) => {
                         return `Error ${index}\nType: ${value.dataElement}\nDetails: ${value2}\n\n`
