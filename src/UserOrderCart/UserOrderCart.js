@@ -1,41 +1,33 @@
 import React, { Component } from 'react';
-import './UserOrder.css';
+import './UserOrderCart.css';
 import { connect } from 'react-redux';
 import UserCheckoutModal from "../UserCheckoutModal/UserCheckoutModal";
 
+// This component simply renders the users current cart, and displays the checkout button
+
 class UserOrder extends Component {
-    constructor(){
-        super();
-        this.updateQuantity = this.updateQuantity.bind(this);
-    }
-
-    updateQuantity(e){
-        console.log(e)
-    }
-
     render() {
-        var userCart = this.props.userOrderCartReducer.userCartArray.map((value) => {
+        // Remap users cart of products upon every render of their cart
+        var userCart = this.props.userOrderCartReducer.productNameArray.map((value) => {
             return <tr>
                 <td key={value}>{value}</td>
-                {/* <td><input type="text" placeholder="enter quantity" /><button type="submit" key={value} onClick={this.updateQuantity}>Enter</button></td>
-                <td key={value}></td> */}
             </tr>
         })
         return (
             <div id="user-order-div">
                 <h3>Your Cart</h3>
+                {/*Table of the users cart info that is updated and rerendered upon change*/}
                 <table id="user-cart-table">
                     <thead>
                         <tr>
                             <th>Product Name</th>
-                            {/* <th>Quantity</th>
-                            <th>Quantity Selected</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {userCart}
                     </tbody>
                 </table>
+                {/*Button for checkout*/}
                 <UserCheckoutModal />
             </div>
         );

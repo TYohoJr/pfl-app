@@ -1,16 +1,25 @@
 import { combineReducers } from 'redux';
-// import React from "react";
 
+// This is the store of all the Redux reducers
+
+// Reducer of all the info that is in the users cart
 const userOrderCartReducer = (state, action) => {
     if (!state) {
         state = {
-            userCartArray: []
+            productNameArray: [],
+            productInfoArray: []
         }
     }
     switch (action.type) {
         case "addItemToCart":
             return state = {
-                userCartArray: action.userCartArray
+                productNameArray: action.productNameArray,
+                productInfoArray: action.productInfoArray
+            }
+        case "clearOrderCart":
+            return state = {
+                productNameArray: [],
+                productInfoArray: []
             }
         default:
             return {
@@ -19,6 +28,7 @@ const userOrderCartReducer = (state, action) => {
     }
 }
 
+// Reducer of all the user details they input in the form in UserCheckoutModal.js
 const userDetailsReducer = (state, action) => {
     if (!state) {
         state = {
@@ -32,7 +42,8 @@ const userDetailsReducer = (state, action) => {
             postalCode: "",
             countryCode: "",
             email: "",
-            phone: ""
+            phone: "",
+            orderReference: ""
         }
     }
     switch (action.type) {
@@ -90,6 +101,11 @@ const userDetailsReducer = (state, action) => {
             return state = {
                 ...state,
                 phone: action.phone
+            }
+        case "onOrderReferenceChange":
+            return state = {
+                ...state,
+                orderReference: action.orderReference
             }
         default:
             return {
