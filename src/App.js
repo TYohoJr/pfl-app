@@ -17,8 +17,8 @@ export default class App extends Component {
         <div className="App">
           <div id="header-div">
             <img id="pfl-logo" src={require("./project-images/pfl-logo.png")} alt="pfl-logo" />
-            <p id="header-date">{new Date().toDateString()}</p>
-            <h2 id="app-title">Welcome to PFL!</h2>
+            <p id="header-date"><b>{new Date().toDateString()}</b></p>
+            <h1 id="app-title">Welcome to PFL!</h1>
           </div>
           {/*Main page consists of 2 components, the list of products and the users cart*/}
           <ProductsList />

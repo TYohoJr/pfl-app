@@ -17,16 +17,18 @@ class UserOrder extends Component {
             <div id="user-order-div">
                 <h3>Your Cart</h3>
                 {/*Table of the users cart info that is updated and rerendered upon change*/}
-                <table id="user-cart-table">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {userCart}
-                    </tbody>
-                </table>
+                <div id="user-cart-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {userCart}
+                        </tbody>
+                    </table>
+                </div>
                 {/*Button for checkout*/}
                 <UserCheckoutModal />
             </div>

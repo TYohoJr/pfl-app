@@ -210,9 +210,10 @@ class UserCheckoutModal extends React.Component {
                         <Input type="text" placeholder="State" maxLength="255" onChange={this.onStateChange} />
                         <Input type="text" placeholder="Postal Code" maxLength="10" onChange={this.onPostalCodeChange} />
                         <Input type="text" placeholder="Country Code" maxLength="70" onChange={this.onCountryCodeChange} />
-                        <Label>Contact Info</Label>
-                        <Input type="text" placeholder="Email" maxLength="60" onChange={this.onEmailChange} />
-                        <Input type="text" placeholder="Phone" maxLength="20" onChange={this.onPhoneChange} />
+                        <Label>Email</Label>
+                        <Input type="text" placeholder="example@email.com" maxLength="60" onChange={this.onEmailChange} />
+                        <Label>Phone Number</Label>
+                        <Input type="text" placeholder="555-555-5555" maxLength="20" onChange={this.onPhoneChange} />
                         <Label>Order Reference</Label><small> *This is used solely for your references*</small>
                         <Input type="text" placeholder="Order Reference" maxLength="128" onChange={this.onOrderReferenceChange} />
                     </ModalBody>

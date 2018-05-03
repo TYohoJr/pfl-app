@@ -7,3 +7,8 @@
 thead {
     text-align: center;
 }
+
+#product-list-table {
+    height: 90vh;
+    overflow: scroll;
+}

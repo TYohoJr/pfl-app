@@ -56,17 +56,20 @@ class ProductList extends Component {
         }
         return (
             <div id="product-list-div">
+                <h3>Product List</h3>
                 {/*Table of available products from the API*/}
-                <table id="product-list-table">
-                    <thead>
-                        <tr>
-                            <th>Products (check to add to cart)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.productsList}
-                    </tbody>
-                </table>
+                <div id="product-list-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Description (check to add to cart)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.productsList}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     }
