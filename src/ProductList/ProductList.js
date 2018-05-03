@@ -23,10 +23,10 @@ class ProductList extends Component {
     addProductToOrder(e) {
         // Add incrementing variable to give each product a unique id
         let sequenceCounter = productInfoArray.length + 1
+        // Change the productID from a sting to a number
         let productIdNumber = Number(e.target.value);
         // Create an object of the product and all it's info
-        // , "productName": e.target.parentNode.innerText
-        let newProductObject = { "ItemSequenceNumber": sequenceCounter, "ProductID": productIdNumber, "Quantity": 1000, "ItemFile": "http://www.mydomain.com/itemFiles/myItemFile.pdf", "TemplateData":null, "ItemID":0 }
+        let newProductObject = { "ItemSequenceNumber": sequenceCounter, "ProductID": productIdNumber, "Quantity": 1000, "ItemFile": "http://www.mydomain.com/itemFiles/myItemFile.pdf", "TemplateData": null, "ItemID": 0 }
         // If the product doesn't exist in the array then push it onto it, otherwise splice it out
         if (productNameArray.indexOf(e.target.parentNode.innerText) === -1) {
             productNameArray.push(e.target.parentNode.innerText);
@@ -44,15 +44,14 @@ class ProductList extends Component {
     }
 
     render() {
-        // If the product hasn't been obtained yet, call the API to obtain it
+        // If the product list hasn't been obtained yet, call the API to obtain it
         if (this.state.productsList === 'loading product list..') {
             axios.post("/getProducts").then((result) => {
                 this.setState({
-                    // Map the product list into the displayed table, along with a checkbox so the user can select them
+                    // Map the product list into the displayed table, along with a checkbox so the user can select them and a modal to view an example image
                     productsList: result.data.body.results.data.map((value) => {
-                        console.log(value)
                         return <tr>
-                            <td className={value.id} key={value.id}><input className="product-list-checkbox" type="checkbox" value={value.productID} onChange={this.addProductToOrder} /><ProductInfoModal imageURL={value.imageURL} productName={value.name} lastUpdated={value.lastUpdated}/></td>
+                            <td className={value.id} key={value.id}><input className="product-list-checkbox" type="checkbox" value={value.productID} onChange={this.addProductToOrder} /><ProductInfoModal imageURL={value.imageURL} productName={value.name} lastUpdated={value.lastUpdated} /></td>
                         </tr>
                     })
                 })

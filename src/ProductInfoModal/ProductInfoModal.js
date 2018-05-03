@@ -21,7 +21,7 @@ class ProductInfoModal extends React.Component {
     render() {
         return (
             <div>
-                <Button id="product-list-button" color="success" onClick={this.toggle}>{this.props.productName}</Button>
+                <Button id="product-list-button" onClick={this.toggle}>{this.props.productName}</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>{this.props.productName}</ModalHeader>
                     <ModalBody>
