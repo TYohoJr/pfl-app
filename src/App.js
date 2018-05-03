@@ -6,16 +6,20 @@ import { createStore } from 'redux';
 import ProductsList from "./ProductList/ProductList";
 import UserOrder from "./UserOrderCart/UserOrderCart";
 
-// Create Redux store
+// Define Redux store
 const store = createStore(reducer);
 
 export default class App extends Component {
-
   render() {
     return (
-      // Define Redux store
+      // Create Redux store
       <Provider store={store} >
         <div className="App">
+          <div id="header-div">
+            <img id="pfl-logo" src={require("./project-images/pfl-logo.png")} alt="pfl-logo" />
+            <p id="header-date">{new Date().toDateString()}</p>
+            <h2 id="app-title">Welcome to PFL!</h2>
+          </div>
           {/*Main page consists of 2 components, the list of products and the users cart*/}
           <ProductsList />
           <UserOrder />

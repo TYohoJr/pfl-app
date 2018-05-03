@@ -199,22 +199,22 @@ class UserCheckoutModal extends React.Component {
                     <ModalBody>
                         {/*Have the user input all required information about the order*/}
                         <Label>Name</Label>
-                        <Input type="text" placeholder="First Name" maxlength="128" onChange={this.onFirstNameChange} />
-                        <Input type="text" placeholder="Last Name" maxlength="128" onChange={this.onLastNameChange} />
+                        <Input type="text" placeholder="First Name" maxLength="128" onChange={this.onFirstNameChange} />
+                        <Input type="text" placeholder="Last Name" maxLength="128" onChange={this.onLastNameChange} />
                         <Label>Company Name</Label>
-                        <Input type="text" placeholder="Company Name" maxlength="50" onChange={this.onCompanyNameChange} />
+                        <Input type="text" placeholder="Company Name" maxLength="50" onChange={this.onCompanyNameChange} />
                         <Label>Address</Label>
-                        <Input type="text" placeholder="Address Line 1" maxlength="70" onChange={this.onAddressOneChange} />
-                        <Input type="text" placeholder="Address Line 2" maxlength="128" onChange={this.onAddressTwoChange} />
-                        <Input type="text" placeholder="City" maxlength="36" onChange={this.onCityChange} />
-                        <Input type="text" placeholder="State" maxlength="255" onChange={this.onStateChange} />
-                        <Input type="text" placeholder="Postal Code" maxlength="10" onChange={this.onPostalCodeChange} />
-                        <Input type="text" placeholder="Country Code" maxlength="70" onChange={this.onCountryCodeChange} />
+                        <Input type="text" placeholder="Address Line 1" maxLength="70" onChange={this.onAddressOneChange} />
+                        <Input type="text" placeholder="Address Line 2" maxLength="128" onChange={this.onAddressTwoChange} />
+                        <Input type="text" placeholder="City" maxLength="36" onChange={this.onCityChange} />
+                        <Input type="text" placeholder="State" maxLength="255" onChange={this.onStateChange} />
+                        <Input type="text" placeholder="Postal Code" maxLength="10" onChange={this.onPostalCodeChange} />
+                        <Input type="text" placeholder="Country Code" maxLength="70" onChange={this.onCountryCodeChange} />
                         <Label>Contact Info</Label>
-                        <Input type="text" placeholder="Email" maxlength="60" onChange={this.onEmailChange} />
-                        <Input type="text" placeholder="Phone" maxlength="20" onChange={this.onPhoneChange} />
+                        <Input type="text" placeholder="Email" maxLength="60" onChange={this.onEmailChange} />
+                        <Input type="text" placeholder="Phone" maxLength="20" onChange={this.onPhoneChange} />
                         <Label>Order Reference</Label><small> *This is used solely for your references*</small>
-                        <Input type="text" placeholder="Order Reference" maxlength="128" onChange={this.onOrderReferenceChange} />
+                        <Input type="text" placeholder="Order Reference" maxLength="128" onChange={this.onOrderReferenceChange} />
                     </ModalBody>
                     <ModalFooter>
                         {/*Attempt to submit the order*/}

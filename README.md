@@ -2,7 +2,11 @@
 
 This is the front-end code of my coding challenge for PFL. The code makes use of React as the front-end framework, Redux for state management, Axios to make server calls, and ReactStrap as a UI framework.
 
-### The App consists of 3 main components:
+### The App consists of 4 main components:
+
+##### App.js
+
+This is the main component that is viewed by the user. All the other components are children of, and connected to App.js
 
 ##### ProductList.js
 

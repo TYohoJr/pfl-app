@@ -1,7 +1,32 @@
 .App {
   text-align: center;
+  background-color: rgb(184, 184, 184)!important;
 }
 
 #product-list-table {
   text-align: left
+}
+
+#header-div {
+  text-align: center;
+  font-family: 'Lucida Sans';
+}
+
+#pfl-logo {
+  width: 50px;
+  margin: 10px;
+  float: left;
+}
+
+#header-date {
+  float: right;
+  margin: 10px;
+}
+
+footer {
+  text-align: center;
+}
+
+#app-title {
+  padding: 20px;
 }
