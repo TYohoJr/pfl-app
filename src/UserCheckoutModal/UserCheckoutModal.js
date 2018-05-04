@@ -46,8 +46,6 @@ class UserCheckoutModal extends React.Component {
                 return alert("First Name can't be blank");
             case !user.lastName:
                 return alert("Last Name can't be blank");
-            case !user.companyName:
-                return alert("Company Name can't be blank");
             case !user.addressOne:
                 return alert("Address can't be blank");
             case !user.city:
@@ -73,10 +71,10 @@ class UserCheckoutModal extends React.Component {
         if (user.postalCode.length !== 5) return alert("Please use the 5 digit format for your postal code");
         // Send all the order and customer information to the server
         axios.post("/createOrder", { userDetails: this.props.userDetailsReducer, orderProductInfo: this.props.userOrderCartReducer.productInfoArray }).then((result) => {
-            console.log(result.data);
             // If an order number is received send it to the customer in an alert
             if (result.data.body.results.data.orderNumber) {
-                alert(`Your order was successfully submitted on ${result.data.body.meta.time} (server time)\nYour order number is: ${result.data.body.results.data.orderNumber}\nYour reference ID is: ${result.data.body.results.data.partnerOrderReference}\nPlease keep a record of both of these ID's`);
+                alert(`Your order was successfully submitted on ${result.data.body.meta.time} (server time)\nOrder Total: ${result.data.body.results.data.orderPrices.orderTotalPrice.toFixed(2)}\nYour order number is: ${result.data.body.results.data.orderNumber}\nYour reference ID is: ${result.data.body.results.data.partnerOrderReference}\nPlease keep a record of both of these ID's`);
+                console.log(result.data);
                 // Clear their cart to prevent duplicate orders
                 this.props.dispatch({
                     type: "clearOrderCart"
@@ -98,6 +96,7 @@ class UserCheckoutModal extends React.Component {
                 let alertMessage = `Failed to submit order\nStatus Code: ${result.data.body.meta.statusCode}\n\n${errorsArray}`;
                 alertMessage = alertMessage.split('')
                 for (var i = 0; i < alertMessage.length; i++) {
+                    // The commas are placed either right before "Type" or right before "Error"
                     if (alertMessage[i] === "," && (alertMessage[i + 1] === "T" || alertMessage[i + 1] === "E")) {
                         alertMessage.splice(i, 1)
                     }
@@ -105,11 +104,10 @@ class UserCheckoutModal extends React.Component {
                 alertMessage = alertMessage.join('')
                 // Send the compiled error message back to the user
                 alert(alertMessage);
-
             }
         })
     }
-    // Send the form info to reducers.js(redux) on every change of an input
+    // Send the form info to reducers.js(redux) on every change of an input field
     onFirstNameChange(e) {
         this.props.dispatch({
             type: "onFirstNameChange",
@@ -217,7 +215,7 @@ class UserCheckoutModal extends React.Component {
                         <Label>Email</Label>
                         <Input type="text" placeholder="example@email.com" maxLength="60" onChange={this.onEmailChange} />
                         <Label>Phone Number</Label>
-                        <Input type="text" placeholder="555-555-5555" maxLength="20" onChange={this.onPhoneChange} />
+                        <Input type="text" placeholder="1234567890" maxLength="20" onChange={this.onPhoneChange} />
                         <Label>Order Reference ID</Label><small> *This is used solely for your references*</small>
                         <Input type="text" placeholder="Order Reference ID" maxLength="128" onChange={this.onOrderReferenceChange} />
                     </ModalBody>

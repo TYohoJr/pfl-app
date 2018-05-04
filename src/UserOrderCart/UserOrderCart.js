@@ -17,7 +17,7 @@ class UserOrder extends Component {
             <div id="user-order-div">
                 <h3>Your Cart</h3>
                 {/*Table of the users cart info that is updated and rerendered upon change*/}
-                <div id="user-cart-table">
+                <div>
                     <table>
                         <thead>
                             <tr>
