@@ -23,11 +23,11 @@ class ProductList extends Component {
     addProductToOrder(e) {
         // Add incrementing variable to give each product a unique id
         let sequenceCounter = productInfoArray.length + 1
-        // Change the productID from a sting to a number
+        // Change the productID and quantity from a sting to a number
         let productIdNumber = Number(e.target.value);
         let productQuantity = Number(e.target.id);
         // Create an object of the product and all it's info
-        let newProductObject = { "ItemSequenceNumber": sequenceCounter, "ProductID": productIdNumber, "Quantity": productQuantity, "ItemFile": "http://www.mydomain.com/itemFiles/myItemFile.pdf", "TemplateData": null, "ItemID": 0 }
+        let newProductObject = { "ItemSequenceNumber": sequenceCounter, "ProductID": productIdNumber, "Quantity": productQuantity, "ItemFile": "http://www.mydomain.com/itemFiles/myItemFile.pdf", "TemplateData": null, "ItemID": sequenceCounter }
         // If the product doesn't exist in the array then push it onto it, otherwise splice it out
         if (productNameArray.indexOf(e.target.parentNode.innerText) === -1) {
             productNameArray.push(e.target.parentNode.innerText);

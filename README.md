@@ -23,3 +23,5 @@ This is a modal of inputs for the users info as well as the final step in the ch
 ##### ProductInfoModal.js
 
 This is a modal to show an example image of the product selected, pulled from the API
+
+After checkout the user views an alert that either consists of errors and details from the server, or (if no errors) it returns them their order number, reference number, time of order, and order total
